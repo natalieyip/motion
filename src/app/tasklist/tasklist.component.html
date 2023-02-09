@@ -2,11 +2,18 @@
     <div>
         <h1>Tasklist</h1>
         <div *ngFor="let task of tasklist">
-            <div>{{task.name}}</div>
+            <div> {{task.name}} </div>
+            <button (click)="onDelete(task.id)">Delete</button>
         </div>
     </div>
-    <form #form=ngForm [formGroup]="tasklistForm" (ngSubmit)="onAddToList()">
-        <input id="task" type="text" formControlName="task" />
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <input 
+            ngModel 
+            #textField="ngModel" 
+            name="task" 
+            type="text" 
+            required />
+        <span *ngIf="hasErrors && textField.invalid"> Please enter something </span>
         <button type="submit">Add</button>
     </form>
 </div>

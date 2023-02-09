@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Task, TasklistService } from '../tasklist.service';
 
 @Component({
@@ -9,13 +9,9 @@ import { Task, TasklistService } from '../tasklist.service';
 })
 export class TasklistComponent implements OnInit {
   tasklist: Task[];
-
-  tasklistForm = this.formBuilder.group({
-    task: ''
-  });
+  hasErrors: boolean = false; 
 
   constructor(
-    private formBuilder: FormBuilder,
     private tasklistService: TasklistService
   ) {}
 
@@ -23,9 +19,17 @@ export class TasklistComponent implements OnInit {
     this.tasklist = this.tasklistService.getTasks();
   }
 
-  onAddToList(): void {
-    const task = new Task(this.tasklistForm.value.task);
+  onSubmit(form: NgForm): void {
+    if (form.invalid) {
+      this.hasErrors = true;
+      return; 
+    }
+    const task = new Task(form.value.task);
     this.tasklistService.addTask(task);
+  }
+
+  onDelete(taskId: string): void {
+    this.tasklistService.deleteTask(taskId);
   }
 
 }

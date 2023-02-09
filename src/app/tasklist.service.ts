@@ -56,7 +56,7 @@ export class TasklistService {
 export class Task {
     id: string;
     completed: boolean;
-    constructor(public name: string | null | undefined) {
+    constructor(public name: string) {
       this.id = uuidv4()
   }
 }
