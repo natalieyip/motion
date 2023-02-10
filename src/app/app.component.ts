@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Observable, timer, map } from 'rxjs';
+import { environment } from 'src/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,38 @@ import { Observable, timer, map } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  dateTime: Observable<Date>
+  constructor() { }
+  dateTime: Observable<Date>;
+  weatherData: WeatherData;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dateTime = timer(0, 1000).pipe(
       map(() => {
-        return new Date()
+        return new Date();
       })
     )
+    this.getUserWeather();
   }
+
+  getUserWeather(): void {
+      navigator.geolocation.getCurrentPosition( async (position) => {
+        const long = position.coords.longitude;
+        const lat = position.coords.latitude;
+
+        const response = await fetch(
+        `${environment.openWeatherUrl}lat=${lat}&lon=${long}&appid=${environment.openWeatherApiKey}`
+      );
+
+      const data = await response.json();
+      this.weatherData = {
+        cityName: data.name,
+        cityTemperature: data.main.temp
+      }; 
+    });
+  }
+}
+
+export class WeatherData {
+  cityName: string;
+  cityTemperature: number;
 }

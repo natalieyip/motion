@@ -1,5 +1,9 @@
 <div class="wrapper">
   <div class="top-section">
+    <aside>   
+      <div>{{weatherData.cityTemperature}}</div> 
+      <div>{{weatherData.cityName}}</div>
+    </aside>
     <h1>{{ dateTime | async | date:'hh:mm' }}</h1>
     <h2>Good morning </h2>
   </div>
