@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="top-section">
-    <h1>11:11</h1>
-    <h2>Good morning Leng Lui</h2>
+    <h1>{{ dateTime | async | date:'hh:mm' }}</h1>
+    <h2>Good morning </h2>
   </div>
 
   <div class="content-section">
@@ -9,7 +9,6 @@
   </div>
 
   <div class="bottom-section">
-
     <tabs></tabs>
   </div>
 </div>

@@ -6,7 +6,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;    
+    background-attachment: fixed;
 }
 
 .top-section {
@@ -27,6 +27,7 @@
 
 .content-section {
     flex-grow: 1;
+    align-self: center;
 }
 
 .bottom-section {
