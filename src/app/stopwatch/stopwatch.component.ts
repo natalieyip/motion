@@ -20,12 +20,12 @@ export class StopwatchComponent {
       this.isRunning = false;
       return;
     }
-
+    const startTime = Date.now() - (this.timer || 0);
     this.timerId = setInterval(() => {
-      this.timer += 1
+      this.timer = Date.now() - startTime;
       this.buttonText = TimerButtonText.STOP;
       this.isRunning = true;
-    }, 1000);
+    });
 
   }
 

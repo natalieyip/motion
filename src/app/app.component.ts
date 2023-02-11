@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   constructor() { }
   dateTime: Observable<Date>;
   weatherData: WeatherData;
+  WeatherType: typeof WeatherType = WeatherType;
 
   ngOnInit(): void {
     this.dateTime = timer(0, 1000).pipe(
@@ -28,13 +29,15 @@ export class AppComponent implements OnInit {
         const lat = position.coords.latitude;
 
         const response = await fetch(
-        `${environment.openWeatherUrl}lat=${lat}&lon=${long}&appid=${environment.openWeatherApiKey}`
+        `${environment.openWeatherUrl}lat=${lat}&lon=${long}&appid=${environment.openWeatherApiKey}&units=imperial`
       );
 
       const data = await response.json();
+      console.log(data);
       this.weatherData = {
         cityName: data.name,
-        cityTemperature: data.main.temp
+        cityTemperature: Math.floor(data.main.temp),
+        weatherType: data.weather[0].main
       }; 
     });
   }
@@ -43,4 +46,12 @@ export class AppComponent implements OnInit {
 export class WeatherData {
   cityName: string;
   cityTemperature: number;
+  weatherType: WeatherType
+}
+
+export enum WeatherType {
+  rain = 'Rain',
+  sun = 'Sun',
+  clouds = 'Clouds',
+  snow = 'Snow'
 }

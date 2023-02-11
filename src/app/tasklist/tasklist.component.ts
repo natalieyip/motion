@@ -26,6 +26,7 @@ export class TasklistComponent implements OnInit {
     }
     const task = new Task(form.value.task);
     this.tasklistService.addTask(task);
+    form.reset();
   }
 
   onDelete(taskId: string): void {

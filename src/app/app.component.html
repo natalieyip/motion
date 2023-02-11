@@ -1,11 +1,30 @@
 <div class="wrapper">
   <div class="top-section">
-    <aside>   
-      <div>{{weatherData.cityTemperature}}</div> 
-      <div>{{weatherData.cityName}}</div>
-    </aside>
+    <div class="weather-wrapper"> 
+      <div>
+        <span [ngSwitch]="weatherData?.weatherType">
+          <i *ngSwitchCase="WeatherType.clouds" class="material-icons-outlined">cloud</i>
+          <i *ngSwitchCase="WeatherType.rain" class="material-icons-outlined">rainy</i>
+          <i *ngSwitchCase="WeatherType.sun" class="material-icons-outlined">sunny</i>
+          <i *ngSwitchCase="WeatherType.snow" class="material-icons-outlined">Ac unit</i>
+          <i *ngSwitchDefault></i>
+        </span>
+        <div class="weather-temp">
+          {{weatherData?.cityTemperature}}
+          <span *ngIf="weatherData">&#176;</span>
+        </div>
+      </div> 
+      <div class="weather-city">{{weatherData?.cityName}}</div>
+    </div>
     <h1>{{ dateTime | async | date:'hh:mm' }}</h1>
-    <h2>Good morning </h2>
+    <h2>Good morning         
+      <input 
+        ngModel 
+        #textField="ngModel" 
+        name="task" 
+        type="text" 
+        required />
+    </h2>
   </div>
 
   <div class="content-section">
