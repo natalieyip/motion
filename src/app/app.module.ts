@@ -6,7 +6,6 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
 import { FormsModule } from '@angular/forms';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [HttpClient],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

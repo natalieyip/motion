@@ -1,0 +1,47 @@
+.tasklist-wrapper {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: saturate(120%) blur(10px);
+    border-radius: 25px;
+    padding: 45px;
+    color: white;
+    min-width: 500px;
+}
+
+.tasklist {
+    margin: 30px 0 45px;
+}
+
+.tasklist-item {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    font-size: 30px;
+
+    &__delete {
+        cursor: pointer;
+    }
+}
+
+.tasklist-add {
+    border: white 2px solid;
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+}
+
+input, select, textarea{
+    color: white;
+    font-size: 40px;
+}
+

@@ -1,9 +1,10 @@
-<div>
-    <div>
-        <h1>Tasklist</h1>
-        <div *ngFor="let task of tasklist">
+<div class="tasklist-wrapper">
+    <h1>Tasklist</h1>
+    <div class="tasklist">
+        <div class="tasklist-item" *ngFor="let task of tasklist">
+            <input class="tasklist-item__checkbox" type="checkbox" /> 
             <div> {{task.name}} </div>
-            <button (click)="onDelete(task.id)">Delete</button>
+            <i (click)="onDelete(task.id)" class="tasklist-item__delete material-icons-outlined">close</i>
         </div>
     </div>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
@@ -13,7 +14,7 @@
             name="task" 
             type="text" 
             required />
-        <span *ngIf="hasErrors && textField.invalid"> Please enter something </span>
-        <button type="submit">Add</button>
+        <div *ngIf="hasErrors && textField.invalid"> Please enter something </div>
+        <button class="tasklist-add" type="submit">Add</button>
     </form>
 </div>

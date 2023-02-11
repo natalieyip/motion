@@ -1,0 +1,29 @@
+.stopwatch-wrapper {
+    min-width: 500px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: saturate(120%) blur(10px);
+    border-radius: 25px;
+    padding: 45px;
+    color: white;
+    min-height: 500px;
+    display: flex;
+}
+
+.stopwatch-button-wrapper {
+    align-self: flex-end; 
+}
+
+button:first-child {
+    margin-right: 120px;
+    min-width: 145px;
+}
+
+button {
+    border: white 2px solid;
+    background: transparent;
+    color: white;
+    padding: 20px;
+    border-radius: 50px;
+    font-size: 30px;
+    cursor: pointer;
+}

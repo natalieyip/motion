@@ -1,5 +1,7 @@
-<div>
+<div class="stopwatch-wrapper">
     <div> {{timer}} </div>
-    <button (click)="onClickTimer()">{{ buttonText }}</button>
-    <button (click)="resetTimer()"> {{ TimerButtonText.RESET }} </button>
+    <div class="stopwatch-button-wrapper">
+        <button (click)="onClickTimer()">{{ buttonText }}</button>
+        <button (click)="resetTimer()"> {{ TimerButtonText.RESET }} </button>
+    </div>
 </div>
