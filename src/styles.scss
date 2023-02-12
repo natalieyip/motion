@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 @import url("https://fonts.googleapis.com/css?family=Material+Icons+Outlined"); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 html, body {
+    font-family: 'Poppins', sans-serif;
     height: 100%;
     color: white;
 }
@@ -13,4 +15,8 @@ h1 {
 
 h2 {
     font-size: 40px;  
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
 }
