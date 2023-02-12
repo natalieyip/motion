@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   dateTime: Observable<Date>;
   weatherData: WeatherData;
   WeatherType: typeof WeatherType = WeatherType;
+  isLoadingWeather = true; 
 
   ngOnInit(): void {
     this.dateTime = timer(0, 1000).pipe(
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
       );
 
       const data = await response.json();
-      console.log(data);
+      this.isLoadingWeather = false;
       this.weatherData = {
         cityName: data.name,
         cityTemperature: Math.floor(data.main.temp),
