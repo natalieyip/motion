@@ -19,6 +19,11 @@ export class TasklistComponent implements OnInit {
     this.tasklist = this.tasklistService.getTasks();
   }
 
+  toggleCompleted(task: Task) {
+    Object.assign(task, {...task, completed: !task.completed});
+    this.tasklistService.saveState();
+  }
+
   onSubmit(form: NgForm): void {
     if (form.invalid) {
       this.hasErrors = true;

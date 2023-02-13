@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, timer, map } from 'rxjs';
-import { environment } from 'environment';
+import { environment } from '../../environment';
+
 
 @Component({
   selector: 'app-root',

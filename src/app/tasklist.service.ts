@@ -25,6 +25,10 @@ export class TasklistService {
     this.saveState()
   }
 
+  updateTodo() {
+    this.saveState();
+  }
+
   deleteTask(id: string) {
     const index = this.tasklist.findIndex(t => t.id === id)
     if (index === -1) {
@@ -49,7 +53,7 @@ export class TasklistService {
 
     this.tasklist.length = 0;
     this.tasklist.push(...tasksInStorage);
-}
+  }
 
 }
 
@@ -57,6 +61,7 @@ export class Task {
     id: string;
     completed: boolean;
     constructor(public name: string) {
+      this.completed = false
       this.id = uuidv4()
   }
 }

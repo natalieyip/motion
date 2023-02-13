@@ -5,10 +5,17 @@
     padding: 45px;
     color: white;
     min-width: 500px;
+    min-height: 300px; 
 }
 
 .tasklist {
     margin: 30px 0 45px;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+.tasklist::-webkit-scrollbar {
+    display: none;
 }
 
 .tasklist-item {
@@ -17,8 +24,24 @@
     justify-content: space-between;
     font-size: 30px;
 
+    &__checkbox {
+        width: 25px;
+        accent-color: #d2cdff;
+    }
+
+    &__name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 320px;
+    }
+
     &__delete {
         cursor: pointer;
+    }
+
+    &-completed {
+        text-decoration: line-through;
     }
 }
 
@@ -38,10 +61,11 @@ input {
     outline: 0;
     background: transparent;
     border-bottom: 1px solid white;
+    font-family: 'Poppins', sans-serif;
 }
 
 input, select, textarea{
     color: white;
-    font-size: 40px;
+    font-size: 30px;
 }
 

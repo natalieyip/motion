@@ -2,12 +2,21 @@
     <h1>Tasklist</h1>
     <div class="tasklist">
         <div class="tasklist-item" *ngFor="let task of tasklist">
-            <input class="tasklist-item__checkbox" type="checkbox" /> 
-            <div> {{task.name}} </div>
+            <input 
+                name="checkbox"
+                (click)="toggleCompleted(task)"
+                class="tasklist-item__checkbox" 
+                type="checkbox" 
+                [checked]="task.completed"/> 
+            <div class="tasklist-item__name" [class.tasklist-item-completed]="task.completed"> 
+                {{task.name}} 
+            </div>
             <i (click)="onDelete(task.id)" class="tasklist-item__delete material-icons-outlined">close</i>
         </div>
     </div>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <label class="visuallyhidden" for="task">
+        </label>
         <input 
             ngModel 
             #textField="ngModel" 
