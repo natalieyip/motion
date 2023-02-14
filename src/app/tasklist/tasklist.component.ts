@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Task, TasklistService } from '../tasklist.service';
+import { Task, TasklistService } from '../shared/tasklist.service';
 
 @Component({
   selector: 'tasklist',
