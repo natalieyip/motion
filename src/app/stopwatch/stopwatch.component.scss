@@ -41,3 +41,29 @@ button {
         background: linear-gradient(45deg, #d2cdff, #5fffbc);
     }
 }
+
+@media (max-height: 1100px) {
+    .stopwatch {
+        &-wrapper {
+            min-width: 300px;
+            max-width: 300px;
+            min-height: 300px;
+            max-height: 300px;
+        }
+
+        &-timer {
+            font-size: 40px;
+            margin-top: 30px;
+        }
+    }
+
+    button {
+        font-size: 20px;
+        padding: 10px;
+    
+        &:first-child {
+            margin-right: 30px;
+            min-width: 0;
+        }
+    }
+}
