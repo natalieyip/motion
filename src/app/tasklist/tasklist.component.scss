@@ -19,6 +19,7 @@
         margin: 30px 0 45px;
         max-height: 450px;
         overflow-y: scroll;
+        scrollbar-width: none;
         &::-webkit-scrollbar {
             display: none;
         }
