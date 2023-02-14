@@ -1,76 +1,83 @@
-.tasklist-wrapper {
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: saturate(120%) blur(10px);
-    border-radius: 25px;
-    padding: 45px;
-    color: white;
-    min-width: 500px;
-    min-height: 300px; 
-}
+@import 'src/styles.scss';
 
 .tasklist {
-    margin: 30px 0 45px;
-    max-height: 450px;
-    overflow-y: scroll;
-}
-
-.tasklist::-webkit-scrollbar {
-    display: none;
-}
-
-.tasklist-item {
-    display: flex;
-    font-weight: bold;
-    justify-content: space-between;
-    font-size: 30px;
-
-    &__checkbox {
-        width: 25px;
-        accent-color: #d2cdff;
+    &-wrapper {
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: saturate(120%) blur(10px);
+        border-radius: 25px;
+        padding: 45px;
+        color: $text-color;
+        min-width: 500px;
+        min-height: 300px; 
     }
 
-    &__name {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        max-width: 320px;
+    &-title {
+        font-size: 48px;
     }
 
-    &__delete {
+    &-list {
+        margin: 30px 0 45px;
+        max-height: 450px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &-item {
+            display: flex;
+            font-weight: bold;
+            justify-content: space-between;
+            font-size: 30px;
+        
+            &__checkbox {
+                width: 25px;
+                accent-color: #d2cdff;
+            }
+        
+            &__name {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                max-width: 320px;
+            }
+        
+            &__delete {
+                cursor: pointer;
+                align-self: center;
+            }
+        
+            &-completed {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &-input {
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-bottom: 1px solid white;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    &-add {
+        border: white 2px solid;
+        background: transparent;
+        color: $text-color;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 25px;
         cursor: pointer;
-        align-self: center;
+        margin-left: 20px;
+
+        &:hover {
+            color: black;
+            background: linear-gradient(45deg, #a2ffff, #ffbdde);
+        }
     }
-
-    &-completed {
-        text-decoration: line-through;
-    }
-}
-
-.tasklist-add {
-    border: white 2px solid;
-    background: transparent;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 25px;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-.tasklist-add:hover {
-    color: black;
-    background: linear-gradient(45deg, #a2ffff, #ffbdde);
-}
-
-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 1px solid white;
-    font-family: 'Poppins', sans-serif;
-}
+} 
 
 input, select, textarea{
-    color: white;
+    color: $text-color;
     font-size: 30px;
 }

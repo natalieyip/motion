@@ -1,15 +1,15 @@
 <div class="tasklist-wrapper">
-    <h1>Tasklist</h1>
-    <div class="tasklist">
-        <div class="tasklist-item" *ngFor="let task of tasklist">
+    <h3 class="tasklist-title">Tasklist</h3>
+    <div class="tasklist-list">
+        <div class="tasklist-list-item" *ngFor="let task of tasklist">
             <input 
                 aria-label="complete task"
                 name="checkbox"
                 (click)="toggleCompleted(task)"
-                class="tasklist-item__checkbox" 
+                class="tasklist-list-item__checkbox" 
                 type="checkbox" 
                 [checked]="task.completed"/> 
-            <div class="tasklist-item__name" [class.tasklist-item-completed]="task.completed"> 
+            <div class="tasklist-list-item__name" [class.tasklist-list-item-completed]="task.completed"> 
                 {{task.name}} 
             </div>
             <i 
@@ -17,13 +17,14 @@
                 (keydown)="onKeyDown($event, task.id)"
                 tabindex=0
                 (click)="onDelete(task.id)" 
-                class="tasklist-item__delete material-icons-outlined">
+                class="tasklist-list-item__delete material-icons-outlined">
                 close
             </i>
         </div>
     </div>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <input 
+            class="tasklist-input"
             aria-label="add task"
             ngModel 
             #textField="ngModel" 

@@ -1,85 +1,81 @@
+@import 'src/styles.scss';
+
 .wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-image: url(https://images.unsplash.com/photo-1473800447596-01729482b8eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+    background-image: url(https://images.unsplash.com/photo-1461301214746-1e109215d6d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
 }
 
-.top-section {
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-
-    h1 {
-        font-size: 120px;
-        font-weight: bold;
-    }
-
-    h2 {
-        font-size: 28px;
-        color: white; 
-        text-shadow: 0px 1px 4px rgba(black, 0.1);
-    }
-}
-
-.content-section {
-    flex-grow: 1;
-    align-self: center;
-}
-
-.bottom-section {
-    display: flex;
-    tabs {
-        margin: auto;
-    }
-}
-
-.weather-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 25px;
-}
-
-.weather-temp {
-    font-size: 50px;
-}
-
-.weather-city {
-    font-size: 25px;
-}
-
-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 1px solid white;
-}
+.section {
+    &-top {
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
     
-input, select, textarea{
-    color: white;
-    font-size: 40px;
+        h1 {
+            font-size: 120px;
+            font-weight: bold;
+            text-shadow: 10px 10px 10px rgba(black, 0.1);
+        }
+    
+        h2 {
+            font-size: 28px;
+            color: $text-color;
+            text-shadow: 10px 10px 10px rgba(black, 0.1);
+        }
+    }
+
+    &-middle {
+        flex-grow: 1;
+        align-self: center;
+    }
+
+    &-bottom {
+        display: flex;
+        tabs {
+            margin: auto;
+        }
+    }
 }
 
-.loading-spinner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 25px;
-    margin-left: 45px;
-    margin-top: 45px;
-    border: 10px solid transparent;
-    border-radius: 50%;
-    border-top: 10px solid white;
-    width: 50px;
-    height: 50px;
-    animation: spinner 2s linear infinite;
-  }
-  
+.weather {
+    &-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 25px;
+    }
+
+    &-temp {
+        font-size: 50px;
+    }
+
+    &-city {
+        font-size: 25px;
+    }
+    
+    &-loading-spinner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 25px;
+        margin-left: 45px;
+        margin-top: 45px;
+        border: 10px solid transparent;
+        border-radius: 50%;
+        border-top: 10px solid white;
+        width: 50px;
+        height: 50px;
+        animation: spinner 2s linear infinite;
+      }
+    
+}
+
 @keyframes spinner {
     0% { transform: rotate(0deg);}
     100% { transform: rotate(360deg);}

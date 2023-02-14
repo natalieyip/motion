@@ -1,39 +1,43 @@
-.stopwatch-wrapper {
-    min-width: 500px;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: saturate(120%) blur(10px);
-    border-radius: 25px;
-    padding: 45px;
-    color: white;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    place-content: space-between;
-}
+@import 'src/styles.scss';
 
-.stopwatch-timer {
-    font-size: 60px;
-    margin-top: 120px;
-    font-family: Roboto;
-}
+.stopwatch {
+    &-wrapper {
+        min-width: 500px;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: saturate(120%) blur(10px);
+        border-radius: 25px;
+        padding: 45px;
+        color: $text-color;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        place-content: space-between;
+    }
 
-button:first-child {
-    margin-right: 120px;
-    min-width: 145px;
+    &-timer {
+        font-size: 60px;
+        margin-top: 120px;
+        font-family: Roboto;
+    }
 }
 
 button {
     border: white 2px solid;
     background: transparent;
-    color: white;
+    color: $text-color;
     padding: 20px;
     border-radius: 50px;
     font-size: 30px;
     cursor: pointer;
-}
 
-button:hover {
-    color: black;
-    background: linear-gradient(45deg, #d2cdff, #5fffbc);
+    &:first-child {
+        margin-right: 120px;
+        min-width: 145px;
+    }
+
+    &:hover {
+        color: black;
+        background: linear-gradient(45deg, #d2cdff, #5fffbc);
+    }
 }

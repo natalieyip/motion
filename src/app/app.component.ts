@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, timer, map } from 'rxjs';
 import { environment } from '../../environment';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,7 +24,7 @@ export class AppComponent implements OnInit {
     this.getUserWeather();
   }
 
-  getUserWeather(): void {
+  private getUserWeather(): void {
       navigator.geolocation.getCurrentPosition( async (position) => {
         const long = position.coords.longitude;
         const lat = position.coords.latitude;

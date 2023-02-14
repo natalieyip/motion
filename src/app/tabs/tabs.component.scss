@@ -1,47 +1,86 @@
-.tabs-wrapper {
-    display: flex;
-    gap: 14px;
-    background-color: rgba(white, 0.25);
-    backdrop-filter: blur(3px);
-    border-radius: 12px;
-    padding: 10px;
-    margin: 12px;
-    margin-top: 50px;
+.tabs {
+    &-wrapper {
+        display: flex;
+        gap: 14px;
+        background-color: rgba(white, 0.25);
+        backdrop-filter: blur(3px);
+        border-radius: 12px;
+        padding: 10px;
+        margin: 50px 12px 12px 12px;
+    }
 }
 
 .tab {
     position: relative;
     text-decoration: none;
     z-index: 1;
-}
 
-.tab-tile {
-    display: flex;
-    padding: 18px;
-    cursor: pointer;
-    i {
-        color: #222;
+    &-tile {
+        display: flex;
+        padding: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0.9;
+            transition: all 0.2s;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        i {
+            color: #222;
+        }
     }
-    transition: all 0.2s ease-out;
-}
 
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        width: 50%;
+        margin: auto;
+        background-color: rgba(white, 0.85);
+        transition: all 0.2s;
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    
+} 
+   
 .tab.selected .tab-tile {
     transform: translateY(-50%);
     transition-duration: 0.4s;
     transition-timing-function: cubic-bezier(0, 0, 0, 2);
+
+    &::before {
+        opacity: 1;
+        box-shadow: 0px 7px 17px rgba(black, 0.12);
+        transition-delay: 0.2s;
+    }
 }
 
-.tab-tile::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    opacity: 0.9;
-    transition: all 0.2s;
+.tab.selected { 
+    outline: none; 
+
+    &::after {
+        opacity: 1;
+        transform: scaleX(1);
+        transition-delay: 0.2s;
+    }
 }
 
 .tasklist-tab .tab-tile::before {
@@ -50,40 +89,4 @@
 
 .stopwatch-tab .tab-tile::before {
     background: linear-gradient(45deg, #d2cdff, #5fffbc);
-}
-
-.tab-tile:hover::before {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.tab.selected .tab-tile::before {
-    opacity: 1;
-    box-shadow: 0px 7px 17px rgba(black, 0.12);
-    transition-delay: 0.2s;
-}
-
-.tab::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    width: 50%;
-    margin: auto;
-    background-color: rgba(white, 0.85);
-    transition: all 0.2s;
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.tab.selected::after {
-    opacity: 1;
-    transform: scaleX(1);
-    transition-delay: 0.2s;
-}
-
-.tab.selected { 
-    outline: none; 
 }
