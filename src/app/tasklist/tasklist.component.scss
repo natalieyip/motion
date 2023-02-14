@@ -38,6 +38,7 @@
 
     &__delete {
         cursor: pointer;
+        align-self: center;
     }
 
     &-completed {
@@ -56,6 +57,11 @@
     margin-left: 20px;
 }
 
+.tasklist-add:hover {
+    color: black;
+    background: linear-gradient(45deg, #a2ffff, #ffbdde);
+}
+
 input {
     border: 0;
     outline: 0;
@@ -68,4 +74,3 @@ input, select, textarea{
     color: white;
     font-size: 30px;
 }
-

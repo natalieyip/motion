@@ -3,6 +3,7 @@
     <div class="tasklist">
         <div class="tasklist-item" *ngFor="let task of tasklist">
             <input 
+                aria-label="complete task"
                 name="checkbox"
                 (click)="toggleCompleted(task)"
                 class="tasklist-item__checkbox" 
@@ -11,15 +12,22 @@
             <div class="tasklist-item__name" [class.tasklist-item-completed]="task.completed"> 
                 {{task.name}} 
             </div>
-            <i (click)="onDelete(task.id)" class="tasklist-item__delete material-icons-outlined">close</i>
+            <i 
+                aria-label="delete task"
+                (keydown)="onKeyDown($event, task.id)"
+                tabindex=0
+                (click)="onDelete(task.id)" 
+                class="tasklist-item__delete material-icons-outlined">
+                close
+            </i>
         </div>
     </div>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-        <label class="visuallyhidden" for="task">
-        </label>
         <input 
+            aria-label="add task"
             ngModel 
             #textField="ngModel" 
+            id="task"
             name="task" 
             type="text" 
             required />

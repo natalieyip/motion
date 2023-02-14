@@ -11,25 +11,17 @@ export class TasklistService {
     this.loadState();
    }
 
-  getTasks() {
+  getTasks(): Task[] {
     return this.tasklist;
   }
 
-  getTask(id: string) {
-    return this.tasklist.find(t => t.id === id)
-  }
-
-  addTask(task: Task) {
+  addTask(task: Task): void {
     this.tasklist.push(task)
 
     this.saveState()
   }
 
-  updateTodo() {
-    this.saveState();
-  }
-
-  deleteTask(id: string) {
+  deleteTask(id: string): void {
     const index = this.tasklist.findIndex(t => t.id === id)
     if (index === -1) {
       return
@@ -40,11 +32,11 @@ export class TasklistService {
     this.saveState()
   }
 
-  saveState() {
+  saveState(): void {
     localStorage.setItem('tasks', JSON.stringify(this.tasklist));
   }
 
-  loadState() {
+  private loadState() {
     const tasksInStorage = JSON.parse(localStorage.getItem('tasks')|| '{}');
 
     if (!tasksInStorage) { 

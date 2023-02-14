@@ -32,3 +32,8 @@ button {
     font-size: 30px;
     cursor: pointer;
 }
+
+button:hover {
+    color: black;
+    background: linear-gradient(45deg, #d2cdff, #5fffbc);
+}

@@ -15,11 +15,17 @@ export class TasklistComponent implements OnInit {
     private tasklistService: TasklistService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tasklist = this.tasklistService.getTasks();
   }
 
-  toggleCompleted(task: Task) {
+  onKeyDown(event, taskId): void {
+    if (event.code === "Space") {
+      this.tasklistService.deleteTask(taskId);
+    }
+  }
+
+  toggleCompleted(task: Task): void {
     Object.assign(task, {...task, completed: !task.completed});
     this.tasklistService.saveState();
   }
